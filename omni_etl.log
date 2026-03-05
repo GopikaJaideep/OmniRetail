@@ -1,0 +1,167 @@
+2026-03-03 05:15:44,324 - INFO - ETL Pipeline Started
+2026-03-03 05:16:04,588 - ERROR - Extraction failed: [TABLE_OR_VIEW_NOT_FOUND] The table or view `subscriptions` cannot be found. Verify the spelling and correctness of the schema and catalog.
+If you did not qualify the name with a schema, verify the current_schema() output, or qualify the name with the correct schema and catalog.
+To tolerate the error on drop use DROP VIEW IF EXISTS or DROP TABLE IF EXISTS. SQLSTATE: 42P01;
+'UnresolvedRelation [subscriptions], [], false
+
+
+JVM stacktrace:
+org.apache.spark.sql.catalyst.ExtendedAnalysisException
+	at org.apache.spark.sql.catalyst.analysis.package$AnalysisErrorAt.tableNotFound(package.scala:94)
+	at org.apache.spark.sql.catalyst.analysis.RelationResolution$.throwTableNotFound(RelationResolution.scala:1037)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$2(CheckAnalysis.scala:355)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis0$2$adapted(CheckAnalysis.scala:324)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.foreachUp(TreeNode.scala:351)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis0(CheckAnalysis.scala:324)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis0$(CheckAnalysis.scala:295)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis0(Analyzer.scala:563)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.$anonfun$checkAnalysis$1(CheckAnalysis.scala:280)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at com.databricks.spark.util.FrameProfiler$.$anonfun$record$1(FrameProfiler.scala:114)
+	at com.databricks.spark.util.FrameProfilerExporter$.maybeExportFrameProfiler(FrameProfilerExporter.scala:203)
+	at com.databricks.spark.util.FrameProfiler$.record(FrameProfiler.scala:105)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis(CheckAnalysis.scala:267)
+	at org.apache.spark.sql.catalyst.analysis.CheckAnalysis.checkAnalysis$(CheckAnalysis.scala:263)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.checkAnalysis(Analyzer.scala:563)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$resolveInFixedPoint$1(HybridAnalyzer.scala:414)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker$.withTracker(QueryPlanningTracker.scala:266)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.resolveInFixedPoint(HybridAnalyzer.scala:414)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.$anonfun$apply$1(HybridAnalyzer.scala:97)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.withTrackedAnalyzerBridgeState(HybridAnalyzer.scala:134)
+	at org.apache.spark.sql.catalyst.analysis.resolver.HybridAnalyzer.apply(HybridAnalyzer.scala:90)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$executeAndCheck$2(Analyzer.scala:623)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper$.markInAnalyzer(AnalysisHelper.scala:425)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.$anonfun$executeAndCheck$1(Analyzer.scala:623)
+	at com.databricks.sql.unity.SAMSnapshotHelper$.visitPlansDuringAnalysis(SAMSnapshotHelper.scala:40)
+	at org.apache.spark.sql.catalyst.analysis.Analyzer.executeAndCheck(Analyzer.scala:612)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$3(QueryExecution.scala:569)
+	at com.databricks.spark.util.FrameProfiler$.$anonfun$record$1(FrameProfiler.scala:114)
+	at com.databricks.spark.util.FrameProfilerExporter$.maybeExportFrameProfiler(FrameProfilerExporter.scala:203)
+	at com.databricks.spark.util.FrameProfiler$.record(FrameProfiler.scala:105)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:818)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$8(QueryExecution.scala:1107)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withExecutionPhase$1(SQLExecution.scala:169)
+	at com.databricks.util.TracingSpanUtils$.withTracing(TracingSpanUtils.scala:250)
+	at com.databricks.spark.util.DatabricksTracingHelper.withSpan(DatabricksSparkTracingHelper.scala:154)
+	at com.databricks.spark.util.DBRTracing$.withSpan(DBRTracing.scala:87)
+	at org.apache.spark.sql.execution.SQLExecution$.withExecutionPhase(SQLExecution.scala:150)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$7(QueryExecution.scala:1107)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:1766)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$5(QueryExecution.scala:1100)
+	at com.databricks.util.LexicalThreadLocal$Handle.runWith(LexicalThreadLocal.scala:63)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$4(QueryExecution.scala:1097)
+	at com.databricks.util.LexicalThreadLocal$Handle.runWith(LexicalThreadLocal.scala:63)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$3(QueryExecution.scala:1097)
+	at com.databricks.util.LexicalThreadLocal$Handle.runWith(LexicalThreadLocal.scala:63)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:1096)
+	at com.databricks.util.LexicalThreadLocal$Handle.runWith(LexicalThreadLocal.scala:63)
+	at org.apache.spark.sql.execution.QueryExecution.withQueryExecutionId(QueryExecution.scala:1084)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:1095)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:860)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:1094)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$2(QueryExecution.scala:560)
+	at com.databricks.sql.util.MemoryTrackerHelper.withMemoryTracking(MemoryTrackerHelper.scala:111)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyAnalyzed$1(QueryExecution.scala:559)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1685)
+	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:60)
+	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:59)
+	at org.apache.spark.util.LazyTry.get(LazyTry.scala:75)
+	at org.apache.spark.sql.execution.QueryExecution.analyzed(QueryExecution.scala:604)
+	at org.apache.spark.sql.execution.QueryExecution.assertAnalyzed(QueryExecution.scala:486)
+	at org.apache.spark.sql.classic.Dataset$.$anonfun$ofRows$11(Dataset.scala:243)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:860)
+	at org.apache.spark.sql.classic.SparkSession.$anonfun$withActiveAndFrameProfiler$1(SparkSession.scala:1279)
+	at com.databricks.spark.util.FrameProfiler$.$anonfun$record$1(FrameProfiler.scala:114)
+	at com.databricks.spark.util.FrameProfilerExporter$.maybeExportFrameProfiler(FrameProfilerExporter.scala:203)
+	at com.databricks.spark.util.FrameProfiler$.record(FrameProfiler.scala:105)
+	at org.apache.spark.sql.classic.SparkSession.withActiveAndFrameProfiler(SparkSession.scala:1279)
+	at org.apache.spark.sql.classic.Dataset$.ofRows(Dataset.scala:238)
+	at org.apache.spark.sql.connect.execution.SparkConnectPlanExecution.$anonfun$handlePlan$8(SparkConnectPlanExecution.scala:129)
+	at org.apache.spark.sql.connect.utils.TimingUtils$.withTiming(TimingUtils.scala:35)
+	at org.apache.spark.sql.connect.execution.SparkConnectPlanExecution.handlePlan(SparkConnectPlanExecution.scala:123)
+	at org.apache.spark.sql.connect.execution.ExecuteThreadRunner.handlePlan(ExecuteThreadRunner.scala:385)
+	at org.apache.spark.sql.connect.execution.ExecuteThreadRunner.$anonfun$executeInternal$1(ExecuteThreadRunner.scala:283)
+	at org.apache.spark.sql.connect.execution.ExecuteThreadRunner.$anonfun$executeInternal$1$adapted(ExecuteThreadRunner.scala:239)
+	at org.apache.spark.sql.connect.service.SessionHolder.$anonfun$withSession$2(SessionHolder.scala:633)
+	at org.apache.spark.util.Utils$.getTryWithCallerStacktrace(Utils.scala:1746)
+	at org.apache.spark.util.LazyTry.get(LazyTry.scala:75)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan(QueryExecution.scala:1014)
+	at com.databricks.spark.sqlgateway.history.SqlExecutionMetrics.$anonfun$setQueryExecution$2(SqlExecutionMetrics.scala:204)
+	at scala.Option.map(Option.scala:242)
+	at com.databricks.spark.sqlgateway.history.SqlExecutionMetrics.$anonfun$setQueryExecution$1(SqlExecutionMetrics.scala:204)
+	at scala.util.Try$.apply(Try.scala:217)
+	at com.databricks.spark.sqlgateway.history.SqlExecutionMetrics.setQueryExecution(SqlExecutionMetrics.scala:204)
+	at com.databricks.spark.sqlgateway.history.SqlGatewayHistorySparkListener.$anonfun$onSqlStart$1(SqlGatewayHistorySparkListener.scala:871)
+	at com.databricks.spark.util.FrameProfiler$.$anonfun$record$1(FrameProfiler.scala:114)
+	at com.databricks.spark.util.FrameProfilerExporter$.maybeExportFrameProfiler(FrameProfilerExporter.scala:203)
+	at com.databricks.spark.util.FrameProfiler$.record(FrameProfiler.scala:105)
+	at com.databricks.spark.sqlgateway.history.SqlGatewayHistorySparkListener.com$databricks$spark$sqlgateway$history$SqlGatewayHistorySparkListener$$onSqlStart(SqlGatewayHistorySparkListener.scala:815)
+	at com.databricks.spark.sqlgateway.history.SqlGatewayHistorySparkListener$$anonfun$onOtherEventDefault$1.applyOrElse(SqlGatewayHistorySparkListener.scala:235)
+	at com.databricks.spark.sqlgateway.history.SqlGatewayHistorySparkListener$$anonfun$onOtherEventDefault$1.applyOrElse(SqlGatewayHistorySparkListener.scala:223)
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:35)
+	at com.databricks.spark.sqlgateway.history.utils.ScriptStatementHelper$$anonfun$onOtherEvent$1.applyOrElse(ScriptStatementHelper.scala:28)
+	at com.databricks.spark.sqlgateway.history.utils.ScriptStatementHelper$$anonfun$onOtherEvent$1.applyOrElse(ScriptStatementHelper.scala:28)
+	at scala.PartialFunction$OrElse.applyOrElse(PartialFunction.scala:270)
+	at com.databricks.spark.sqlgateway.history.SqlGatewayHistorySparkListener.$anonfun$onOtherEvent$1(SqlGatewayHistorySparkListener.scala:201)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at com.databricks.spark.util.FrameProfiler$.$anonfun$record$1(FrameProfiler.scala:114)
+	at com.databricks.spark.util.FrameProfilerExporter$.maybeExportFrameProfiler(FrameProfilerExporter.scala:203)
+	at com.databricks.spark.util.FrameProfiler$.record(FrameProfiler.scala:105)
+	at com.databricks.spark.sqlgateway.history.SqlGatewayHistorySparkListener.onOtherEvent(SqlGatewayHistorySparkListener.scala:201)
+	at org.apache.spark.scheduler.SparkListenerBus.doPostEvent(SparkListenerBus.scala:108)
+	at org.apache.spark.scheduler.SparkListenerBus.doPostEvent$(SparkListenerBus.scala:28)
+	at org.apache.spark.scheduler.AsyncEventQueue.doPostEvent(AsyncEventQueue.scala:46)
+	at org.apache.spark.scheduler.AsyncEventQueue.doPostEvent(AsyncEventQueue.scala:46)
+	at org.apache.spark.util.ListenerBus.postToAll(ListenerBus.scala:208)
+	at org.apache.spark.util.ListenerBus.postToAll$(ListenerBus.scala:172)
+	at org.apache.spark.scheduler.AsyncEventQueue.super$postToAll(AsyncEventQueue.scala:183)
+	at org.apache.spark.scheduler.AsyncEventQueue.$anonfun$dispatch$1(AsyncEventQueue.scala:183)
+	at scala.runtime.java8.JFunction0$mcJ$sp.apply(JFunction0$mcJ$sp.scala:17)
+	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:59)
+	at org.apache.spark.scheduler.AsyncEventQueue.org$apache$spark$scheduler$AsyncEventQueue$$dispatch(AsyncEventQueue.scala:119)
+	at org.apache.spark.scheduler.AsyncEventQueue$$anon$2.$anonfun$run$1(AsyncEventQueue.scala:115)
+	at org.apache.spark.util.Utils$.tryOrStopSparkContext(Utils.scala:1573)
+	at org.apache.spark.scheduler.AsyncEventQueue$$anon$2.run(AsyncEventQueue.scala:115)
+2026-03-05 01:14:36,999 - INFO - ETL Pipeline Started
+2026-03-05 01:15:16,024 - INFO - Data extracted successfully
+2026-03-05 01:15:16,140 - INFO - Transformation completed
+2026-03-05 01:15:16,153 - INFO - Feature engineering complete
+2026-03-05 01:15:16,353 - INFO - API fetched successfully
+2026-03-05 01:15:16,636 - INFO - Data loaded successfully to database
+2026-03-05 01:15:16,636 - INFO - ETL Pipeline Completed Successfully
+2026-03-05 01:23:48,191 - INFO - Python Server ready to receive messages
+2026-03-05 01:23:48,191 - INFO - Received command c on object id p0
+2026-03-05 01:23:52,136 - INFO - Received command c on object id p0
+2026-03-05 01:23:52,147 - INFO - ETL Process Started
+2026-03-05 01:23:52,469 - INFO - Received command c on object id p0
+2026-03-05 01:24:24,076 - INFO - Bronze Layer Completed
+2026-03-05 01:24:24,889 - INFO - Received command c on object id p0
+2026-03-05 01:24:26,443 - INFO - Data Cleaning Completed
+2026-03-05 01:24:26,721 - INFO - Received command c on object id p0
+2026-03-05 01:24:27,440 - INFO - Feature Engineering Completed
+2026-03-05 01:24:27,694 - INFO - Received command c on object id p0
+2026-03-05 01:24:27,825 - WARNING - API failed, using fallback rate: 'rates'
+2026-03-05 01:24:27,826 - INFO - Exchange Rate Used: 1.5
+2026-03-05 01:24:28,111 - INFO - Received command c on object id p0
+2026-03-05 01:24:45,048 - INFO - Gold Layer Loaded Successfully
+2026-03-05 01:24:45,245 - INFO - Received command c on object id p0
+2026-03-05 01:24:46,125 - INFO - Final Order Items Count: 9000
+2026-03-05 01:59:54,523 - INFO - Python Server ready to receive messages
+2026-03-05 01:59:54,536 - INFO - Received command c on object id p0
+2026-03-05 01:59:56,153 - INFO - Received command c on object id p0
+2026-03-05 01:59:56,174 - INFO - ETL Process Started
+2026-03-05 01:59:56,555 - INFO - Received command c on object id p0
+2026-03-05 02:00:17,742 - INFO - Bronze Layer Completed
+2026-03-05 02:00:18,337 - INFO - Received command c on object id p0
+2026-03-05 02:00:19,502 - INFO - Data Cleaning Completed
+2026-03-05 02:00:19,819 - INFO - Received command c on object id p0
+2026-03-05 02:00:20,688 - INFO - Feature Engineering Completed
+2026-03-05 02:00:20,983 - INFO - Received command c on object id p0
+2026-03-05 02:00:21,062 - WARNING - API failed, using fallback rate: 'rates'
+2026-03-05 02:00:21,062 - INFO - Exchange Rate Used: 1.5
+2026-03-05 02:00:21,302 - INFO - Received command c on object id p0
+2026-03-05 02:00:33,072 - INFO - Gold Layer Loaded Successfully
+2026-03-05 02:00:33,337 - INFO - Received command c on object id p0
+2026-03-05 02:00:33,709 - INFO - Final Order Items Count: 9000
